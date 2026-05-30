@@ -4,110 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasaporte al Gran Día - Beatriz & Juan Antonio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Special+Elite&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --azul-pasaporte: #1a2a3a; --dorado: #c5a059; --fondo-papel: #f7f4eb; --rojo-sello: #a94442; --texto: #2c3e50;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--azul-pasaporte); color: var(--texto); line-height: 1.6; text-align: center; }
-        .portada { background: radial-gradient(circle, #2c3e50 0%, var(--azul-pasaporte) 100%); height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--dorado); padding: 20px; border: 15px solid rgba(197, 160, 89, 0.2); }
-        .interior { background-color: var(--fondo-papel); padding: 60px 20px; }
-        .seccion { max-width: 800px; margin: 0 auto 50px auto; }
-        .seccion h2 { font-family: 'Special Elite', monospace; font-size: 2rem; color: var(--azul-pasaporte); margin-bottom: 30px; border-bottom: 3px solid var(--dorado); padding-bottom: 5px; }
-        .boarding-pass { background: #fff; border-radius: 15px; border: 2px solid #e2dbcb; padding: 20px; margin-top: 20px; text-align: left; }
-        .bp-dato { margin-bottom: 15px; }
-        .bp-label { font-size: 0.75rem; text-transform: uppercase; color: #7f8c8d; font-weight: 600; display: block; }
-        .bp-value { font-size: 1.1rem; font-weight: 600; color: var(--azul-pasaporte); }
-        .route-container { background: white; padding: 30px 20px; border-radius: 12px; border: 1px solid #e2dbcb; text-align: left; }
-        .visa-form-container { background: #fff; padding: 40px 30px; border-radius: 8px; border: 1px solid #e2dbcb; text-align: left; }
+        body { font-family: 'Montserrat', sans-serif; background: #1a2a3a; color: #2c3e50; text-align: center; padding: 20px; }
+        .visa-form-container { background: #fff; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; color: var(--azul-pasaporte); text-transform: uppercase; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 2px solid #e2dbcb; border-radius: 6px; }
-        .passenger-input-box { background: #fdfcf7; padding: 15px; border-radius: 6px; border: 1px dashed var(--dorado); margin-top: 10px; }
-        .dynamic-name-field { margin-bottom: 12px; }
-        .radio-group { display: flex; flex-direction: column; gap: 10px; }
-        .btn-enviar { width: 100%; padding: 15px; background-color: var(--azul-pasaporte); color: white; border: none; border-radius: 6px; font-family: 'Special Elite', monospace; font-size: 1.1rem; cursor: pointer; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
+        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #e2dbcb; border-radius: 6px; font-size: 1rem; }
+        .btn-enviar { width: 100%; padding: 15px; background: #1a2a3a; color: white; border: none; cursor: pointer; font-family: 'Special Elite', monospace; font-size: 1.1rem; border-radius: 6px; }
+        .bp-value { font-weight: bold; color: #1a2a3a; display: block; margin-bottom: 20px; border-bottom: 1px solid #e2dbcb; padding-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <section class="portada">
-        <h1>Beatriz & Juan Antonio</h1>
-        <div class="fecha-pasaporte">26 . 09 . 2026</div>
-    </section>
+    <div class="visa-form-container">
+        <h2>Control de Pasajeros</h2>
+        
+        <div class="bp-value">Convite: 14:45 h - Restaurante Vandelvira</div>
+        <div class="bp-value">Ceremonia: 12:30 h - Iglesia de San Pablo</div>
 
-    <div class="interior">
-        <section class="seccion">
-            <h2>Tarjeta de Embarque</h2>
-            <div class="boarding-pass">
-                <div class="bp-dato"><span class="bp-label">Destino Final (Convite)</span><span class="bp-value">14:45 h - Restaurante Vandelvira (Baeza)</span></div>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSelY0wFebOCXg9Fy5KE95CxaQxpRhYpw0Td1BmlSp9FCjgaTQ/formResponse" method="POST">
+            
+            <div class="form-group">
+                <label>¿Cuántos asientos necesitáis?</label>
+                <select name="entry.1237172044">
+                    <option value="1">1 asiento</option>
+                    <option value="2">2 asientos</option>
+                    <option value="3">3 asientos</option>
+                    <option value="4">4 asientos</option>
+                    <option value="5">5 asientos</option>
+                </select>
             </div>
-        </section>
 
-        <section class="seccion">
-            <h2>Plan de Traslados</h2>
-            <div class="route-container">
-                <p><strong>12:30 h</strong> - Llegada a la Iglesia de San Pablo (Úbeda) para la Ceremonia.</p>
+            <div class="form-group">
+                <label>Nombres de todos los asistentes (Sepáralos por comas)</label>
+                <textarea name="entry.1654160459" placeholder="Ej: Juan Pérez, María García..." required></textarea>
             </div>
-        </section>
 
-        <section class="seccion" style="max-width: 600px;">
-            <h2>Control de Pasajeros</h2>
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSelY0wFebOCXg9Fy5KE95CxaQxpRhYpw0Td1BmlSp9FCjgaTQ/formResponse" method="POST" class="visa-form-container">
-                
-                <input type="hidden" id="google-entry-names" name="entry.1654160459" value="">
+            <div class="form-group">
+                <label>¿Asistís al evento?</label>
+                <select name="entry.746098042">
+                    <option value="Confirmada">¡Abordamos el avión! (Asistimos)</option>
+                    <option value="Cancelada">Me quedo en tierra (No asistimos)</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="asientos">¿Cuántos asientos necesitáis reservar?</label>
-                    <select id="asientos" name="entry.1237172044" onchange="updatePassengerFields(this.value)">
-                        <option value="1">1 asiento</option>
-                        <option value="2">2 asientos</option>
-                        <option value="3">3 asientos</option>
-                        <option value="4">4 asientos</option>
-                        <option value="5">5 asientos</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label>Opción de Autobús</label>
+                <select name="entry.1541019688">
+                    <option value="Autobús 1">Autobús 1 (Salida Jaén 11:30h)</option>
+                    <option value="Autobús 2">Autobús 2 (Úbeda al acabar ceremonia)</option>
+                    <option value="Ninguno">No necesito autobús</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label>Nombre y Apellidos de los Pasajeros</label>
-                    <div id="passenger-names-container" class="passenger-input-box">
-                        <div class="dynamic-name-field">
-                            <input type="text" class="passenger-name-input" placeholder="Nombre completo del pasajero 1" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Estado del Visado</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="entry.746098042" value="Confirmada" checked> Asistimos</label>
-                        <label><input type="radio" name="entry.746098042" value="Cancelada"> No asistimos</label>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
-            </form>
-        </section>
+            <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
+        </form>
     </div>
 
-    <script>
-        function updatePassengerFields(value) {
-            const container = document.getElementById('passenger-names-container');
-            container.innerHTML = '';
-            const num = parseInt(value);
-            for (let i = 1; i <= num; i++) {
-                container.innerHTML += `<div class="dynamic-name-field"><input type="text" class="passenger-name-input" placeholder="Nombre del pasajero ${i}" required></div>`;
-            }
-        }
-        document.querySelector('form').addEventListener('submit', function() {
-            let names = [];
-            document.querySelectorAll('.passenger-name-input').forEach((input, i) => names.push(`P${i+1}: ${input.value}`));
-            document.getElementById('google-entry-names').value = names.join(' | ');
-        });
-    </script>
 </body>
 </html>
