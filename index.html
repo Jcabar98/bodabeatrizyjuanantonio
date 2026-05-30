@@ -4,63 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasaporte al Gran Día - Beatriz & Juan Antonio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Special+Elite&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background: #1a2a3a; color: #2c3e50; text-align: center; padding: 20px; }
-        .visa-form-container { background: #fff; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .form-group { margin-bottom: 25px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
-        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #e2dbcb; border-radius: 6px; font-size: 1rem; }
-        .btn-enviar { width: 100%; padding: 15px; background: #1a2a3a; color: white; border: none; cursor: pointer; font-family: 'Special Elite', monospace; font-size: 1.1rem; border-radius: 6px; }
-        .bp-value { font-weight: bold; color: #1a2a3a; display: block; margin-bottom: 20px; border-bottom: 1px solid #e2dbcb; padding-bottom: 10px; }
+        :root { --azul: #1a2a3a; --dorado: #c5a059; --papel: #f7f4eb; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--azul); color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { font-family: 'Alex Brush', cursive; color: var(--azul); font-size: 3rem; margin-bottom: 20px; }
+        .info-box { background: var(--papel); padding: 15px; border-radius: 5px; margin-bottom: 25px; border-left: 4px solid var(--dorado); text-align: left; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; text-transform: uppercase; color: var(--azul); }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+        .dynamic-field { margin-top: 10px; }
+        .btn-enviar { width: 100%; padding: 15px; background: var(--azul); color: white; border: none; font-size: 1.1rem; cursor: pointer; border-radius: 5px; font-family: 'Special Elite', monospace; }
+        .btn-enviar:hover { background: var(--dorado); }
     </style>
 </head>
 <body>
 
-    <div class="visa-form-container">
-        <h2>Control de Pasajeros</h2>
-        
-        <div class="bp-value">Convite: 14:45 h - Restaurante Vandelvira</div>
-        <div class="bp-value">Ceremonia: 12:30 h - Iglesia de San Pablo</div>
-
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSelY0wFebOCXg9Fy5KE95CxaQxpRhYpw0Td1BmlSp9FCjgaTQ/formResponse" method="POST">
-            
-            <div class="form-group">
-                <label>¿Cuántos asientos necesitáis?</label>
-                <select name="entry.1237172044">
-                    <option value="1">1 asiento</option>
-                    <option value="2">2 asientos</option>
-                    <option value="3">3 asientos</option>
-                    <option value="4">4 asientos</option>
-                    <option value="5">5 asientos</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Nombres de todos los asistentes (Sepáralos por comas)</label>
-                <textarea name="entry.1654160459" placeholder="Ej: Juan Pérez, María García..." required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>¿Asistís al evento?</label>
-                <select name="entry.746098042">
-                    <option value="Confirmada">¡Abordamos el avión! (Asistimos)</option>
-                    <option value="Cancelada">Me quedo en tierra (No asistimos)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Opción de Autobús</label>
-                <select name="entry.1541019688">
-                    <option value="Autobús 1">Autobús 1 (Salida Jaén 11:30h)</option>
-                    <option value="Autobús 2">Autobús 2 (Úbeda al acabar ceremonia)</option>
-                    <option value="Ninguno">No necesito autobús</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
-        </form>
+<div class="container">
+    <h1>Beatriz & Juan Antonio</h1>
+    
+    <div class="info-box">
+        <strong>Ceremonia:</strong> 12:30 h - Iglesia de San Pablo (Úbeda)<br>
+        <strong>Convite:</strong> 14:45 h - Restaurante Vandelvira (Baeza)
     </div>
+
+    <form action="https://formsubmit.co/mkoeagev" method="POST">
+        <input type="hidden" name="_subject" value="¡Nueva confirmación de asistencia!">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+            <label>¿Cuántos asientos reserváis?</label>
+            <select name="Asientos" id="asientos" onchange="generarCampos(this.value)">
+                <option value="1">1 asiento</option>
+                <option value="2">2 asientos</option>
+                <option value="3">3 asientos</option>
+                <option value="4">4 asientos</option>
+                <option value="5">5 asientos</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Nombres de los asistentes</label>
+            <div id="campos-nombres">
+                <input type="text" name="Nombre_1" placeholder="Nombre completo del pasajero 1" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Opción de Autobús</label>
+            <select name="Autobus">
+                <option value="Autobus 1">Autobús 1 (Salida Jaén 11:30h)</option>
+                <option value="Autobus 2">Autobús 2 (Úbeda al acabar ceremonia)</option>
+                <option value="Ninguno">No necesito autobús</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-enviar">ENVIAR VALIDACIÓN</button>
+    </form>
+</div>
+
+<script>
+    function generarCampos(num) {
+        const container = document.getElementById('campos-nombres');
+        container.innerHTML = '';
+        for (let i = 1; i <= num; i++) {
+            container.innerHTML += `<div class="dynamic-field"><input type="text" name="Nombre_${i}" placeholder="Nombre completo del pasajero ${i}" required></div>`;
+        }
+    }
+</script>
 
 </body>
 </html>
