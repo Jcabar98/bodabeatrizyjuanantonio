@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasaporte al Gran Día - Beatriz & Juan Antonio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Special+Elite&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azul-pasaporte: #1a2a3a; 
+            --dorado: #c5a059; 
+            --fondo-papel: #f7f4eb; 
+            --rojo-sello: #a94442; 
+            --texto: #2c3e50;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--azul-pasaporte);
+            color: var(--texto);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /*--- PORTADA ---*/
+        .portada {
+            background: radial-gradient(circle, #2c3e50 0%, var(--azul-pasaporte) 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--dorado);
+            padding: 20px;
+            border: 15px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .icono-pasaporte { font-size: 4rem; margin-bottom: 20px; }
+        .portada h1 { font-family: 'Alex Brush', cursive; font-size: 4.5rem; color: #ffffff; margin: 20px 0; }
+        .fecha-pasaporte { font-family: 'Special Elite', monospace; font-size: 1.5rem; padding: 10px 25px; border: 2px dashed var(--dorado); color: var(--dorado); margin-top: 20px; }
+
+        /*--- CUERPO INTERIOR ---*/
+        .interior { background-color: var(--fondo-papel); padding: 60px 20px; }
+        .seccion { max-width: 800px; margin: 0 auto 50px auto; }
+        .seccion h2 { font-family: 'Special Elite', monospace; font-size: 2rem; color: var(--azul-pasaporte); margin-bottom: 30px; border-bottom: 3px solid var(--dorado); padding-bottom: 5px; display: inline-block; }
+
+        /*--- TARJETA DE EMBARQUE ---*/
+        .boarding-pass { background: #fff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; border: 2px solid #e2dbcb; display: flex; flex-direction: column; text-align: left; }
+        .bp-header { background-color: var(--azul-pasaporte); color: white; padding: 20px; display: flex; justify-content: space-between; }
+        .bp-body { padding: 30px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .bp-body { grid-template-columns: 1fr; } .portada h1 { font-size: 3rem; } }
+        .bp-dato { margin-bottom: 15px; }
+        .bp-label { font-size: 0.75rem; text-transform: uppercase; color: #7f8c8d; font-weight: 600; display: block; }
+        .bp-value { font-size: 1.1rem; font-weight: 600; color: var(--azul-pasaporte); }
+
+        /*--- AUTOBUSES ---*/
+        .route-container { background: white; padding: 30px 20px; border-radius: 12px; border: 1px solid #e2dbcb; text-align: left; }
+        .bus-card { border-left: 4px solid var(--dorado); padding-left: 20px; margin-bottom: 25px; }
+        .bus-title { font-family: 'Special Elite', monospace; font-size: 1.2rem; color: var(--azul-pasaporte); margin-bottom: 5px; }
+        .timeline { list-style: none; padding-left: 10px; }
+        .timeline li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+        .timeline li::before { content: '•'; color: var(--rojo-sello); position: absolute; left: 0; font-size: 1.4rem; top: -4px; }
+
+        /*--- FORMULARIO ---*/
+        .visa-form-container { background: #fff; padding: 40px 30px; border-radius: 8px; border: 1px solid #e2dbcb; text-align: left; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; color: var(--azul-pasaporte); text-transform: uppercase; }
+        .form-group input[type="text"], .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 2px solid #e2dbcb; border-radius: 6px; font-size: 1rem; }
+        .radio-group { display: flex; flex-direction: column; gap: 10px; }
+        .radio-group label { font-weight: 400; display: flex; align-items: center; gap: 10px; }
+        .btn-enviar { width: 100%; padding: 15px; background-color: var(--azul-pasaporte); color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; font-family: 'Special Elite', monospace; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <section class="portada">
+        <div class="icono-pasaporte">✈️</div>
+        <h2>Passport to the Wedding of</h2>
+        <h1>Beatriz & Juan Antonio</h1>
+        <div class="fecha-pasaporte">26 . 09 . 2026</div>
+    </section>
+
+    <div class="interior">
+        <section class="seccion">
+            <h2>Tarjeta de Embarque</h2>
+            <div class="boarding-pass">
+                <div class="bp-header">
+                    <h3>BOARDING PASS / TARJETA DE BODA</h3>
+                    <span>VUELO B&JA2026</span>
+                </div>
+                <div class="bp-body">
+                    <div>
+                        <div class="bp-dato">
+                            <span class="bp-label">Pasajeros Principales</span>
+                            <span class="bp-value">Beatriz & Juan Antonio</span>
+                        </div>
+                        <div class="bp-dato">
+                            <span class="bp-label">Punto de Salida (Ceremonia)</span>
+                            <span class="bp-value">13:00 h - Iglesia de San Pablo (Úbeda)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bp-dato">
+                            <span class="bp-label">Fecha del Viaje</span>
+                            <span class="bp-value">26 de Septiembre de 2026</span>
+                        </div>
+                        <div class="bp-dato">
+                            <span class="bp-label">Destino Final (Convite)</span>
+                            <span class="bp-value">14:45 h - Restaurante Vandelvira (Baeza)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion">
+            <h2>Plan de Traslados (Autobuses)</h2>
+            <div class="route-container">
+                <div class="bus-card">
+                    <div class="bus-title">🚌 Autobús 1: Línea Jaén - Úbeda - Baeza</div>
+                    <ul class="timeline">
+                        <li><strong>11:30 h</strong> - Salida desde Jaén (Explanada de El Corte Inglés).</li>
+                        <li><strong>12:30 h</strong> - Llegada a la Iglesia de San Pablo (Úbeda).</li>
+                        <li><strong>Al finalizar (14:15 h)</strong> - Traslado al Restaurante Vandelvira (Baeza).</li>
+                    </ul>
+                </div>
+                <div class="bus-card">
+                    <div class="bus-title">🚌 Autobús 2: Línea Úbeda - Baeza</div>
+                    <ul class="timeline">
+                        <li><strong>Al terminar la ceremonia</strong> - Salida desde la Iglesia de San Pablo (Úbeda).</li>
+                        <li><strong>Trayecto</strong> - Llegada directa al Restaurante Vandelvira a las 14:45 h.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" style="max-width: 600px;">
+            <h2>Control de Pasajeros</h2>
+            
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSelY0wFebOCXg9Fy5KE95CxaQxpRhYpw0Td1BmlSp9FCjgaTQ/formResponse" method="POST" class="visa-form-container">
+                
+                <div class="form-group">
+                    <label>Nombre y Apellidos del Pasajero</label>
+                    <input type="text" name="entry.1654160459" placeholder="Tu nombre completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Estado del Visado</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="entry.746098042" value="Confirmada (Asiste)" checked> ¡Abordamos el avión! (Asistimos)</label>
+                        <label><input type="radio" name="entry.746098042" value="Cancelada (No asiste)"> Me quedo en tierra (No asistimos)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>¿Solicitáis plaza en el autobús?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="entry.1541019688" value="Autobús 1 (Jaén - Úbeda)"> Sí, Autobús 1 (Salida desde Jaén)</label>
+                        <label><input type="radio" name="entry.1541019688" value="Autobús 2 (Úbeda - Baeza)"> Sí, Autobús 2 (Salida desde Úbeda)</label>
+                        <label><input type="radio" name="entry.1541019688" value="No necesita autobús" checked> No, viajamos por nuestra cuenta</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Intolerancias o Menús Especiales</label>
+                    <textarea name="entry.1979402519" rows="3" placeholder="Ej: Celíaco, Vegano, Alergias..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
