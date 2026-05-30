@@ -31,7 +31,7 @@
             text-align: center;
         }
 
-        /*--- PORTADA: LA TAPA DEL PASAPORTE ---*/
+        /*--- PORTADA ---*/
         .portada {
             background: radial-gradient(circle, #2c3e50 0%, var(--azul-pasaporte) 100%);
             height: 100vh;
@@ -77,7 +77,7 @@
             margin-top: 20px;
         }
 
-        /*--- CUERPO INTERIOR (EL PASAPORTE ABIERTO) ---*/
+        /*--- CUERPO INTERIOR ---*/
         .interior {
             background-color: var(--fondo-papel);
             background-image: radial-gradient(rgba(197, 160, 89, 0.05) 15%, transparent 16%);
@@ -189,7 +189,7 @@
             background-color: var(--dorado);
         }
 
-        /*--- ITINERARIO DE AUTOBUSES ---*/
+        /*--- AUTOBUSES ---*/
         .route-container {
             background: white;
             padding: 30px 20px;
@@ -250,7 +250,7 @@
             top: -4px;
         }
 
-        /*--- SELLO DE ADUANA ---*/
+        /*--- SELLO ---*/
         .sello-aduana {
             width: 140px;
             height: 140px;
@@ -270,7 +270,7 @@
             box-shadow: 0 0 5px rgba(169, 68, 66, 0.2);
         }
 
-        /*--- FORMULARIO VISADO (RSVP) ---*/
+        /*--- FORMULARIO ---*/
         .visa-form-container {
             background: #fff;
             padding: 40px 30px;
@@ -319,13 +319,6 @@
             background-color: #fff;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--dorado);
-        }
-
         .passenger-input-box {
             background: #fdfcf7;
             padding: 15px;
@@ -344,10 +337,6 @@
 
         .dynamic-name-field {
             margin-bottom: 12px;
-        }
-
-        .dynamic-name-field:last-child {
-            margin-bottom: 0;
         }
 
         .radio-group {
@@ -388,6 +377,11 @@
             border-color: var(--azul-pasaporte);
         }
 
+        /* Animación para que el iframe oculto no moleste */
+        #hidden_iframe {
+            display: none;
+        }
+
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -397,7 +391,6 @@
 </head>
 <body>
 
-    <!-- PORTADA: TAPA PASAPORTE -->
     <section class="portada">
         <div class="icono-pasaporte">✈️</div>
         <h2>Passport to the Wedding of</h2>
@@ -406,10 +399,8 @@
         <div class="fecha-pasaporte">26 . 09 . 2026</div>
     </section>
 
-    <!-- INTERIOR DEL PASAPORTE -->
     <div class="interior">
 
-        <!-- SECCIÓN: TARJETA DE EMBARQUE -->
         <section class="seccion">
             <h2>Tarjeta de Embarque</h2>
             <div class="boarding-pass">
@@ -429,8 +420,8 @@
                         </div>
                         <div class="bp-dato">
                             <span class="bp-label">Punto de Salida (Ceremonia)</span>
-                            <span class="bp-value">13:00 h - Iglesia de San Pablo (Úbeda)</span>
-                            <a href="https://maps.app.goo.gl/GtiA4gdhA36CCeZ78" target="_blank" class="btn-mapa">📍 Abrir Mapa Localización</a>
+                            <span class="bp-value">13:00 h - Iglesia de San Francisco</span>
+                            <button class="btn-mapa" onclick="alert('Coordenadas de la Iglesia de San Francisco')">Ver Coordenadas</button>
                         </div>
                     </div>
                     <div>
@@ -444,67 +435,57 @@
                         </div>
                         <div class="bp-dato">
                             <span class="bp-label">Destino Final (Convite)</span>
-                            <span class="bp-value">14:45 h - Restaurante Vandelvira (Baeza)</span>
-                            <a href="https://maps.app.goo.gl/L99bqRjVfj4DL2Jo6" target="_blank" class="btn-mapa">📍 Abrir Mapa Localización</a>
+                            <span class="bp-value">14:30 h - Finca El Camisón</span>
+                            <button class="btn-mapa" onclick="alert('Coordenadas de la Finca El Camisón')">Ver Coordenadas</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN: PLAN DE VUELO / AUTOBUSES -->
         <section class="seccion">
             <h2>Plan de Traslados (Autobuses)</h2>
             <p style="text-align: left; margin-bottom: 15px; font-size: 0.95rem;">Disponemos de dos líneas oficiales de autobuses para facilitar vuestro viaje. Por favor, revisad los horarios:</p>
             
             <div class="route-container">
-                <!-- Autobús 1 -->
                 <div class="bus-card">
                     <div class="bus-title">🚌 Autobús 1: Línea Jaén - Úbeda - Baeza</div>
                     <div class="bus-route">Ruta completa hacia la ceremonia y convite</div>
                     <ul class="timeline">
                         <li><strong>11:30 h</strong> - Salida desde Jaén (Explanada de El Corte Inglés de Jaén).</li>
-                        <li><strong>12:30 h</strong> - Llegada a la Iglesia de San Pablo (Úbeda) para la Ceremonia.</li>
-                        <li><strong>Al finalizar</strong> - Traslado directo al Restaurante Vandelvira (Baeza) para el convite.</li>
+                        <li><strong>12:30 h</strong> - Llegada a la Iglesia de San Francisco (Úbeda) para la Ceremonia.</li>
+                        <li><strong>Al finalizar</strong> - Traslado directo a la Finca El Camisón para el convite.</li>
                     </ul>
                 </div>
 
-                <!-- Autobús 2 -->
                 <div class="bus-card">
                     <div class="bus-title">🚌 Autobús 2: Línea Úbeda - Baeza</div>
                     <div class="bus-route">Para los pasajeros que asistan por su cuenta a la ceremonia</div>
                     <ul class="timeline">
-                        <li><strong>Al terminar la ceremonia</strong> - Salida desde la Iglesia de San Pablo (Úbeda).</li>
-                        <li><strong>Trayecto</strong> - Traslado directo al Restaurante Vandelvira (Baeza) para celebrar el convite.</li>
+                        <li><strong>Al terminar la ceremonia</strong> - Salida desde la Iglesia de San Francisco (Úbeda).</li>
+                        <li><strong>Trayecto</strong> - Traslado directo a la Finca El Camisón para celebrar el convite.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- SELLO ADUANA DECORATIVO -->
         <div class="sello-aduana">
             <div>ADMITIDO</div>
             <div style="font-size: 1.1rem; margin: 2px 0;">26 SEP 2026</div>
             <div style="font-size: 0.6rem; letter-spacing: 1px;">BODA B&JA</div>
         </div>
 
-        <!-- SECCIÓN: FORMULARIO DE CONTROL DE VISADO (RSVP) -->
         <section class="seccion" style="max-width: 600px;">
             <h2>Control de Pasajeros</h2>
-            <p style="margin-bottom: 25px; font-weight: 300; font-size: 0.95rem;">Por favor, valida tu visado de entrada confirming los detalles de tu viaje aquí debajo.</p>
+            <p style="margin-bottom: 25px; font-weight: 300; font-size: 0.95rem;">Por favor, valida tu visado de entrada confirmando los detalles de tu viaje aquí debajo.</p>
             
-            <!-- REGRESAMOS A FORMSUBMIT CON CAMPOS CONFIGURADOS EN TABLA -->
-            <form action="https://formsubmit.co/jcabar.98@icloud.com" method="POST" class="visa-form-container">
+            <iframe name="hidden_iframe" id="hidden_iframe" onload="if(submitted) { window.location='https://web3forms.com/success'; }"></iframe>
+            
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSelY0wFebOCXg9Fy5KE95CxaQxpRhYpw0Td1BmlSp9FCjgaTQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="visa-form-container">
                 
-                <!-- Configuraciones de FormSubmit para organizar el email -->
-                <input type="hidden" name="_subject" value="🎫 ¡Nueva confirmación de Pasaporte Boda!">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
-
-                <!-- Número de asientos -->
                 <div class="form-group">
                     <label for="asientos">¿Cuántos asientos necesitáis reservar?</label>
-                    <select id="asientos" name="Asientos Reservados" onchange="updatePassengerFields(this.value)">
+                    <select id="asientos" onchange="updatePassengerFields(this.value)">
                         <option value="1">1 asiento</option>
                         <option value="2">2 asientos</option>
                         <option value="3">3 asientos</option>
@@ -513,39 +494,35 @@
                     </select>
                 </div>
 
-                <!-- Nombre dinámico de Pasajeros -->
                 <div class="form-group">
                     <label>Nombre y Apellidos de los Pasajeros</label>
                     <div id="passenger-names-container" class="passenger-input-box">
                         <div class="dynamic-name-field">
-                            <input type="text" name="Nombre Pasajero 1" placeholder="Nombre completo del pasajero 1" required>
+                            <input type="text" name="entry.1654160459" placeholder="Nombre completo del pasajero 1" required>
                         </div>
                     </div>
                 </div>
 
-                <!-- ¿Asiste? -->
                 <div class="form-group">
                     <label>Estado del Visado</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="¿Asistencia?" value="Confirmada (Asiste)" checked> ¡Abordamos el avión! (Asistimos)</label>
-                        <label><input type="radio" name="¿Asistencia?" value="Cancelada (No asiste)"> Me quedo en tierra (No asistimos)</label>
+                        <label><input type="radio" name="entry.746098042" value="Confirmada (Asiste)" checked> ¡Abordamos el avión! (Asistimos)</label>
+                        <label><input type="radio" name="entry.746098042" value="Cancelada (No asiste)"> Me quedo en tierra (No asistimos)</label>
                     </div>
                 </div>
 
-                <!-- Autobús -->
                 <div class="form-group">
                     <label>¿Solicitáis plaza en alguno de los autobuses oficiales?</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="Opción de Autobús" value="Autobús 1 (Jaén - Úbeda)"> Sí, Autobús 1 (Salida desde Jaén - 11:30h)</label>
-                        <label><input type="radio" name="Opción de Autobús" value="Autobús 2 (Úbeda - Baeza)"> Sí, Autobús 2 (Salida desde Úbeda al acabar la ceremonia)</label>
-                        <label><input type="radio" name="Opción de Autobús" value="No necesita autobús" checked> No, viajamos por nuestra cuenta por libre</label>
+                        <label><input type="radio" name="entry.1541019688" value="Autobús 1 (Jaén - Úbeda)"> Sí, Autobús 1 (Salida desde Jaén - 11:30h)</label>
+                        <label><input type="radio" name="entry.1541019688" value="Autobús 2 (Úbeda - Baeza)"> Sí, Autobús 2 (Salida desde Úbeda al acabar la ceremonia)</label>
+                        <label><input type="radio" name="entry.1541019688" value="No necesita autobús" checked> No, viajamos por nuestra cuenta</label>
                     </div>
                 </div>
 
-                <!-- Restricciones de equipaje / Alergias -->
                 <div class="form-group">
                     <label for="declaracion">Declaración de Intolerancias o Menús Especiales</label>
-                    <textarea id="declaracion" name="Alergias o Menú Especial" rows="3" placeholder="Ej: Celíaco, Vegano, Alergia al marisco, Menú infantil... Especificar para qué pasajero."></textarea>
+                    <textarea id="declaracion" name="entry.1979402519" rows="3" placeholder="Ej: Celíaco, Vegano, Alergia al marisco, Menú infantil... Especificar para qué pasajero."></textarea>
                 </div>
 
                 <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
@@ -554,8 +531,9 @@
 
     </div>
 
-    <!-- LÓGICA DE JAVASCRIPT DINÁMICA -->
     <script>
+        var submitted = false;
+
         function updatePassengerFields(value) {
             const container = document.getElementById('passenger-names-container');
             container.innerHTML = ''; 
@@ -572,7 +550,8 @@
                 
                 const input = document.createElement('input');
                 input.type = 'text';
-                input.name = `Nombre Pasajero ${i}`;
+                // Comparten el mismo name del Form para enviar múltiples nombres juntos si reservan más de 1 asiento
+                input.name = "entry.1654160459"; 
                 input.placeholder = `Nombre completo del pasajero ${i}`;
                 input.required = true;
                 
