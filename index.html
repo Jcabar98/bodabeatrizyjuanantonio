@@ -250,7 +250,7 @@
             top: -4px;
         }
 
-        /*--- SELLO DE ADUANA ---*/
+        /*--- SELLO DE ADUANA DECORATIVO ---*/
         .sello-aduana {
             width: 140px;
             height: 140px;
@@ -427,7 +427,7 @@
                         <div class="bp-dato">
                             <span class="bp-label">Punto de Salida (Ceremonia)</span>
                             <span class="bp-value">13:00 h - Iglesia de San Pablo (Úbeda)</span>
-                            <a href="https://maps.app.goo.gl/GtiA4gdhA36CCeZ78" target="_blank" class="btn-mapa">📍 Abrir Mapa Localización</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn-mapa">📍 Abrir Mapa Localización</a>
                         </div>
                     </div>
                     <div>
@@ -442,7 +442,7 @@
                         <div class="bp-dato">
                             <span class="bp-label">Destino Final (Convite)</span>
                             <span class="bp-value">14:45 h - Restaurante Vandelvira (Baeza)</span>
-                            <a href="https://maps.app.goo.gl/L99bqRjVfj4DL2Jo6" target="_blank" class="btn-mapa">📍 Abrir Mapa Localización</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn-mapa">📍 Abrir Mapa Localización</a>
                         </div>
                     </div>
                 </div>
@@ -486,10 +486,9 @@
             <p style="margin-bottom: 25px; font-weight: 300; font-size: 0.95rem;">Por favor, valida tu visado de entrada confirmando los detalles de tu viaje aquí debajo.</p>
             
             <form action="https://formsubmit.co/jcabar.98@icloud.com" method="POST" class="visa-form-container">
-                
-                <input type="hidden" name="_subject" value="¡Nueva confirmación de Pasaporte Boda!">
+                <input type="hidden" name="_subject" value="¡Nueva confirmación de Asistencia!">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
+                <input type="hidden" name="_captcha" value="false">
 
                 <div class="form-group">
                     <label for="asientos">¿Cuántos asientos necesitáis reservar?</label>
@@ -518,3 +517,52 @@
                         <label><input type="radio" name="¿Asistencia?" value="Cancelada"> Me quedo en tierra (No asistimos)</label>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label>¿Solicitáis plaza en alguno de los autobuses oficiales?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="Opción Autobús" value="Autobús 1 (Jaén - Úbeda - Baeza)"> Sí, Autobús 1 (Salida desde Jaén - 11:30h)</label>
+                        <label><input type="radio" name="Opción Autobús" value="Autobús 2 (Úbeda - Baeza)"> Sí, Autobús 2 (Salida desde Úbeda al acabar la ceremonia)</label>
+                        <label><input type="radio" name="Opción Autobús" value="No necesita autobús" checked> No, viajamos por nuestra cuenta por libre</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="declaracion">Declaración de Intolerancias o Menús Especiales</label>
+                    <textarea id="declaracion" name="Declaracion Alergias" rows="3" placeholder="Ej: Celíaco, Vegano, Alergia al marisco, Menú infantil... Especificar para qué pasajero."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
+            </form>
+        </section>
+
+    </div>
+
+    <script>
+        function updatePassengerFields(value) {
+            const container = document.getElementById('passenger-names-container');
+            container.innerHTML = ''; 
+            
+            const numPassengers = parseInt(value);
+            const labelText = numPassengers > 1 ? "Identificación de los viajeros:" : "Identificación del viajero:";
+            const infoParagraph = document.createElement('p');
+            infoParagraph.textContent = labelText;
+            container.appendChild(infoParagraph);
+
+            for (let i = 1; i <= numPassengers; i++) {
+                const div = document.createElement('div');
+                div.className = 'dynamic-name-field';
+                
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = `Nombre Pasajero ${i}`;
+                input.placeholder = `Nombre completo del pasajero ${i}`;
+                input.required = true;
+                
+                div.appendChild(input);
+                container.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>
