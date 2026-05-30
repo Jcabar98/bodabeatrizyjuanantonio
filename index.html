@@ -491,18 +491,20 @@
         <!-- SECCIÓN: FORMULARIO DE CONTROL DE VISADO (RSVP) -->
         <section class="seccion" style="max-width: 600px;">
             <h2>Control de Pasajeros</h2>
-            <p style="margin-bottom: 25px; font-weight: 300; font-size: 0.95rem;">Por favor, valida tu visado de entrada confirmando los detalles de tu viaje aquí debajo.</p>
+            <p style="margin-bottom: 25px; font-weight: 300; font-size: 0.95rem;">Por favor, valida tu visado de entrada confirming los detalles de tu viaje aquí debajo.</p>
             
+            <!-- REGRESAMOS A FORMSUBMIT CON CAMPOS CONFIGURADOS EN TABLA -->
             <form action="https://formsubmit.co/jcabar.98@icloud.com" method="POST" class="visa-form-container">
                 
-                <input type="hidden" name="_subject" value="¡Nueva confirmación de Pasaporte Boda!">
+                <!-- Configuraciones de FormSubmit para organizar el email -->
+                <input type="hidden" name="_subject" value="🎫 ¡Nueva confirmación de Pasaporte Boda!">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
 
                 <!-- Número de asientos -->
                 <div class="form-group">
                     <label for="asientos">¿Cuántos asientos necesitáis reservar?</label>
-                    <select id="asientos" name="Número de asientos" onchange="updatePassengerFields(this.value)">
+                    <select id="asientos" name="Asientos Reservados" onchange="updatePassengerFields(this.value)">
                         <option value="1">1 asiento</option>
                         <option value="2">2 asientos</option>
                         <option value="3">3 asientos</option>
@@ -525,8 +527,8 @@
                 <div class="form-group">
                     <label>Estado del Visado</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="¿Asistencia?" value="Confirmada" checked> ¡Abordamos el avión! (Asistimos)</label>
-                        <label><input type="radio" name="¿Asistencia?" value="Cancelada"> Me quedo en tierra (No asistimos)</label>
+                        <label><input type="radio" name="¿Asistencia?" value="Confirmada (Asiste)" checked> ¡Abordamos el avión! (Asistimos)</label>
+                        <label><input type="radio" name="¿Asistencia?" value="Cancelada (No asiste)"> Me quedo en tierra (No asistimos)</label>
                     </div>
                 </div>
 
@@ -534,16 +536,16 @@
                 <div class="form-group">
                     <label>¿Solicitáis plaza en alguno de los autobuses oficiales?</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="Opción Autobús" value="Autobús 1 (Jaén - Úbeda - Baeza)"> Sí, Autobús 1 (Salida desde Jaén - 11:30h)</label>
-                        <label><input type="radio" name="Opción Autobús" value="Autobús 2 (Úbeda - Baeza)"> Sí, Autobús 2 (Salida desde Úbeda al acabar la ceremonia)</label>
-                        <label><input type="radio" name="Opción Autobús" value="No necesita autobús" checked> No, viajamos por nuestra cuenta por libre</label>
+                        <label><input type="radio" name="Opción de Autobús" value="Autobús 1 (Jaén - Úbeda)"> Sí, Autobús 1 (Salida desde Jaén - 11:30h)</label>
+                        <label><input type="radio" name="Opción de Autobús" value="Autobús 2 (Úbeda - Baeza)"> Sí, Autobús 2 (Salida desde Úbeda al acabar la ceremonia)</label>
+                        <label><input type="radio" name="Opción de Autobús" value="No necesita autobús" checked> No, viajamos por nuestra cuenta por libre</label>
                     </div>
                 </div>
 
                 <!-- Restricciones de equipaje / Alergias -->
                 <div class="form-group">
                     <label for="declaracion">Declaración de Intolerancias o Menús Especiales</label>
-                    <textarea id="declaracion" name="Declaracion Alergias" rows="3" placeholder="Ej: Celíaco, Vegano, Alergia al marisco, Menú infantil... Especificar para qué pasajero."></textarea>
+                    <textarea id="declaracion" name="Alergias o Menú Especial" rows="3" placeholder="Ej: Celíaco, Vegano, Alergia al marisco, Menú infantil... Especificar para qué pasajero."></textarea>
                 </div>
 
                 <button type="submit" class="btn-enviar">VALIDAR PASAPORTE</button>
